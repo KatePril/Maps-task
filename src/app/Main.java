@@ -6,6 +6,7 @@ import app.utils.OperationsExecutor;
 import app.utils.OutputGetter;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 public class Main {
     public static void main(String[] args) {
@@ -13,12 +14,23 @@ public class Main {
     }
 
     private static void executeTaskOne() {
+        OutputGetter<String, Integer> outputGetter = new OutputGetter<>();
+        OperationsExecutor<String, Integer> operationsExecutor = new OperationsExecutor<>();
+
         HashMap<String, Integer> fruits = DataSupplier.getFruits();
         System.out.println("Initial data:");
-        OutputGetter.getMap(fruits, Constants.ROW_WITH_COMA);
-        OperationsExecutor.changeValue(fruits, "banana", 14);
-        OperationsExecutor.addValue(fruits, "plum", 15);
+        outputGetter.getMap(fruits, Constants.ROW_WITH_COMA);
+
+        operationsExecutor.changeValue(fruits, "banana", 14);
+        operationsExecutor.addValue(fruits, "plum", 15);
         System.out.println("Updated data:");
-        OutputGetter.getMap(fruits, Constants.ROW_WITH_COMA);
+        outputGetter.getMap(fruits, Constants.ROW_WITH_COMA);
+    }
+
+    private static void executeTaskThree() {
+//        OutputGetter<String, String> outputGetter = new OutputGetter<>();
+//        OperationsExecutor<String, String> operationsExecutor = new OperationsExecutor<>();
+//
+//        LinkedHashMap<String, String> contacts = DataSupplier
     }
 }

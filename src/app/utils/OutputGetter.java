@@ -5,12 +5,12 @@ import java.util.Map;
 
 import static java.lang.String.format;
 
-public class OutputGetter {
+public class OutputGetter<K, V> {
 
-    public static void getMap(HashMap<String, Integer> map, String row) {
+    public void getMap(Map<K, V> map, String row) {
         int count = 1;
         StringBuilder output = new StringBuilder();
-        for (Map.Entry<String, Integer> pair : map.entrySet()) {
+        for (Map.Entry<K, V> pair : map.entrySet()) {
             output.append(format(row,
                     count, pair.getKey(), pair.getValue()));
             count++;

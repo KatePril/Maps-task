@@ -1,6 +1,7 @@
 package app.utils;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 public final class DataSupplier {
 
@@ -12,6 +13,15 @@ public final class DataSupplier {
         fruits.put("pineapple", 13);
         fruits.put("grape", 9);
         return fruits;
+    }
+
+    public static LinkedHashMap<String, String> getContacts() {
+        LinkedHashMap<String, String> contacts = new LinkedHashMap<>();
+        contacts.put("Tom", "tom@mail.com");
+        contacts.put("Lisa", "lisa@mail.com");
+        contacts.put("Alice", "alisa@mail.com");
+        contacts.put("Denis", "den@mail.com");
+        return contacts;
     }
 
 }

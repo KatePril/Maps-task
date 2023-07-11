@@ -5,15 +5,15 @@ import java.util.Map;
 
 import static java.lang.String.format;
 
-public final class OperationsExecutor {
+public class OperationsExecutor<K, V> {
 
-    public static Integer changeValue(
-            HashMap<String, Integer> hashMap, String key, Integer value) {
-        return hashMap.replace(key, value);
+    public V changeValue(
+            Map<K, V> map, K key, V value) {
+        return map.replace(key, value);
     }
 
-    public static void addValue(
-            HashMap<String, Integer> hashMap, String key, Integer value) {
-        hashMap.put(key, value);
+    public void addValue(
+            Map<K, V> map, K key, V value) {
+        map.put(key, value);
     }
 }
