@@ -16,4 +16,13 @@ public class OperationsExecutor<K, V> {
             Map<K, V> map, K key, V value) {
         map.put(key, value);
     }
+
+    public String findKey(Map<K, V> map, K key) {
+        for (K k : map.keySet()) {
+            if (k.equals(key)) {
+                return format("%s was found", key);
+            }
+        }
+        return format("%s is absent", key);
+    }
 }

@@ -7,15 +7,18 @@ import app.utils.OutputGetter;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         executeTaskOne();
-
+        executeTaskTwo();
         executeTaskThree();
     }
 
     private static void executeTaskOne() {
+        System.out.println("----------Task 1----------");
+
         OutputGetter<String, Integer> outputGetter = new OutputGetter<>();
         OperationsExecutor<String, Integer> operationsExecutor = new OperationsExecutor<>();
 
@@ -29,7 +32,20 @@ public class Main {
         outputGetter.getMap(fruits, Constants.ROW_WITH_COMA);
     }
 
+    private static void  executeTaskTwo() {
+        System.out.println("----------Task 2----------");
+
+        OperationsExecutor<String, Integer> operationsExecutor = new OperationsExecutor<>();
+        HashMap<String, Integer> fruits = DataSupplier.getFruits();
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the key you want to found:");
+        System.out.println(operationsExecutor.findKey(fruits, scanner.nextLine()));
+    }
+
     private static void executeTaskThree() {
+        System.out.println("----------Task 3----------");
+
         OutputGetter<String, String> outputGetter = new OutputGetter<>();
         OperationsExecutor<String, String> operationsExecutor = new OperationsExecutor<>();
 
