@@ -11,6 +11,8 @@ import java.util.LinkedHashMap;
 public class Main {
     public static void main(String[] args) {
         executeTaskOne();
+
+        executeTaskThree();
     }
 
     private static void executeTaskOne() {
@@ -18,19 +20,26 @@ public class Main {
         OperationsExecutor<String, Integer> operationsExecutor = new OperationsExecutor<>();
 
         HashMap<String, Integer> fruits = DataSupplier.getFruits();
-        System.out.println("Initial data:");
+        System.out.println(Constants.INT_DATA);
         outputGetter.getMap(fruits, Constants.ROW_WITH_COMA);
 
         operationsExecutor.changeValue(fruits, "banana", 14);
         operationsExecutor.addValue(fruits, "plum", 15);
-        System.out.println("Updated data:");
+        System.out.println(Constants.UPDATED_DATA);
         outputGetter.getMap(fruits, Constants.ROW_WITH_COMA);
     }
 
     private static void executeTaskThree() {
-//        OutputGetter<String, String> outputGetter = new OutputGetter<>();
-//        OperationsExecutor<String, String> operationsExecutor = new OperationsExecutor<>();
-//
-//        LinkedHashMap<String, String> contacts = DataSupplier
+        OutputGetter<String, String> outputGetter = new OutputGetter<>();
+        OperationsExecutor<String, String> operationsExecutor = new OperationsExecutor<>();
+
+        LinkedHashMap<String, String> contacts = DataSupplier.getContacts();
+        System.out.println(Constants.INT_DATA);
+        outputGetter.getMap(contacts, Constants.ROW_WITH_DASH);
+
+        operationsExecutor.changeValue(contacts, "Tom", "tomasdev@glob.net");
+        System.out.println(Constants.UPDATED_DATA);
+        outputGetter.getMap(contacts, Constants.ROW_WITH_DASH);
+
     }
 }
