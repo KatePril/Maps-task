@@ -1,5 +1,6 @@
 package app;
 
+import app.utils.Constants;
 import app.utils.DataSupplier;
 import app.utils.OperationsExecutor;
 import app.utils.OutputGetter;
@@ -14,10 +15,10 @@ public class Main {
     private static void executeTaskOne() {
         HashMap<String, Integer> fruits = DataSupplier.getFruits();
         System.out.println("Initial data:");
-        OutputGetter.getMap(fruits);
+        OutputGetter.getMap(fruits, Constants.ROW_WITH_COMA);
         OperationsExecutor.changeValue(fruits, "banana", 14);
         OperationsExecutor.addValue(fruits, "plum", 15);
         System.out.println("Updated data:");
-        OutputGetter.getMap(fruits);
+        OutputGetter.getMap(fruits, Constants.ROW_WITH_COMA);
     }
 }
