@@ -17,4 +17,8 @@ public class OutputGetter {
         }
         System.out.println(output);
     }
+
+    public static void getOutput(String output) {
+        System.out.println(output);
+    }
 }
