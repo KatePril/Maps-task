@@ -1,7 +1,10 @@
 package app;
 
+import app.operators.ElementAdder;
+import app.operators.ElementFinder;
+import app.operators.ElementReplacer;
 import app.utils.Constants;
-import app.utils.DataSupplier;
+import app.provider.DataSupplier;
 import app.utils.OperationsExecutor;
 import app.utils.OutputGetter;
 
@@ -20,14 +23,15 @@ public class Main {
         System.out.println("----------Task 1----------");
 
         OutputGetter<String, Integer> outputGetter = new OutputGetter<>();
-        OperationsExecutor<String, Integer> operationsExecutor = new OperationsExecutor<>();
+        ElementReplacer<String, Integer> elementReplacer = new ElementReplacer<>();
+        ElementAdder<String, Integer> elementAdder = new ElementAdder<>();
 
         HashMap<String, Integer> fruits = DataSupplier.getFruits();
         System.out.println(Constants.INT_DATA);
         outputGetter.getMap(fruits, Constants.ROW_WITH_COMA);
 
-        operationsExecutor.changeValue(fruits, "banana", 14);
-        operationsExecutor.addValue(fruits, "plum", 15);
+        elementReplacer.changeValue(fruits, "banana", 14);
+        elementAdder.addValue(fruits, "plum", 15);
         System.out.println(Constants.UPDATED_DATA);
         outputGetter.getMap(fruits, Constants.ROW_WITH_COMA);
     }
@@ -35,25 +39,25 @@ public class Main {
     private static void  executeTaskTwo() {
         System.out.println("----------Task 2----------");
 
-        OperationsExecutor<String, Integer> operationsExecutor = new OperationsExecutor<>();
+        ElementFinder<String, Integer> elementFinder = new ElementFinder<>();
         HashMap<String, Integer> fruits = DataSupplier.getFruits();
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the key you want to found:");
-        System.out.println(operationsExecutor.findKey(fruits, scanner.nextLine()));
+        System.out.println(elementFinder.findKey(fruits, scanner.nextLine()));
     }
 
     private static void executeTaskThree() {
         System.out.println("----------Task 3----------");
 
         OutputGetter<String, String> outputGetter = new OutputGetter<>();
-        OperationsExecutor<String, String> operationsExecutor = new OperationsExecutor<>();
+        ElementReplacer<String, String> elementReplacer = new ElementReplacer<>();
 
         LinkedHashMap<String, String> contacts = DataSupplier.getContacts();
         System.out.println(Constants.INT_DATA);
         outputGetter.getMap(contacts, Constants.ROW_WITH_DASH);
 
-        operationsExecutor.changeValue(contacts, "Tom", "tomasdev@glob.net");
+        elementReplacer.changeValue(contacts, "Tom", "tomasdev@glob.net");
         System.out.println(Constants.UPDATED_DATA);
         outputGetter.getMap(contacts, Constants.ROW_WITH_DASH);
 
